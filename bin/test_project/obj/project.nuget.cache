@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "tcb+SbOS2ug=",
+  "success": true,
+  "projectFilePath": "/home/bluecloud/PackSharp/test_project/TestApp.csproj",
+  "expectedPackageFiles": [
+    "/home/bluecloud/.nuget/packages/mysqlconnector/2.0.0/mysqlconnector.2.0.0.nupkg.sha512",
+    "/home/bluecloud/.nuget/packages/mysqlconnector.authentication.ed25519/2.0.0/mysqlconnector.authentication.ed25519.2.0.0.nupkg.sha512",
+    "/home/bluecloud/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
+    "/home/bluecloud/.nuget/packages/system.buffers/4.5.1/system.buffers.4.5.1.nupkg.sha512",
+    "/home/bluecloud/.nuget/packages/system.diagnostics.diagnosticsource/5.0.1/system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512",
+    "/home/bluecloud/.nuget/packages/system.memory/4.5.4/system.memory.4.5.4.nupkg.sha512",
+    "/home/bluecloud/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512",
+    "/home/bluecloud/.nuget/packages/system.runtime.compilerservices.unsafe/5.0.0/system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
+    "/home/bluecloud/.nuget/packages/system.threading.tasks.extensions/4.3.0/system.threading.tasks.extensions.4.3.0.nupkg.sha512"
+  ],
+  "logs": []
+}

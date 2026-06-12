@@ -1,0 +1,54 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/bluecloud/PackSharp/test_project/TestApp.csproj": {}
+  },
+  "projects": {
+    "/home/bluecloud/PackSharp/test_project/TestApp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/bluecloud/PackSharp/test_project/TestApp.csproj",
+        "projectName": "TestApp",
+        "projectPath": "/home/bluecloud/PackSharp/test_project/TestApp.csproj",
+        "packagesPath": "/home/bluecloud/.nuget/packages/",
+        "outputPath": "/home/bluecloud/PackSharp/test_project/obj/",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "UsingMicrosoftNETSdk": false,
+        "configFilePaths": [
+          "/home/bluecloud/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net481"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net481": {
+            "projectReferences": {}
+          }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net481": {
+          "dependencies": {
+            "MySqlConnector.Authentication.Ed25519": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          }
+        }
+      }
+    }
+  }
+}

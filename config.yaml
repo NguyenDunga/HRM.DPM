@@ -1,0 +1,53 @@
+edit:
+  library:
+    paths:
+    - /home/bluecloud/PackSharp/test_project/bin
+    - D:\Projects\DLL.NET.6
+  project:
+    path:
+    - /home/bluecloud/PackSharp/test_project
+  conversation:
+    HRM.MemCached: HRM.MemCache.dll
+    HRM.eOffice: HRM.Office.dll
+add:
+  packages:
+  - path: /home/bluecloud/PackSharp/test_project
+    reference:
+      name: MySqlConnector.Authentication.Ed25519
+      version: 2.0.0.0
+assembly_bindings:
+  common_assemblies:
+  - name: Microsoft.Bcl.AsyncInterfaces
+    version: 9.0.0.7
+    public_key_token: cc7b13ffcd2ddd51
+    old_version_range: 0.0.0.0-9.0.0.7
+  - name: System.Threading.Tasks.Extensions
+    version: 4.5.4.0
+    public_key_token: cc7b13ffcd2ddd51
+    old_version_range: 0.0.0.0-4.5.4.0
+  - name: System.Memory
+    version: 4.5.5.0
+    public_key_token: cc7b13ffcd2ddd51
+    old_version_range: 0.0.0.0-4.5.5.0
+  - name: System.Buffers
+    version: 4.5.1.0
+    public_key_token: cc7b13ffcd2ddd51
+    old_version_range: 0.0.0.0-4.5.1.0
+  - name: System.Runtime.CompilerServices.Unsafe
+    version: 6.0.0.0
+    public_key_token: b03f5f7f11d50a3a
+    old_version_range: 0.0.0.0-6.0.0.0
+  - name: Newtonsoft.Json
+    version: 13.0.3.0
+    public_key_token: 30ad4fe6b2a6aeed
+    old_version_range: 0.0.0.0-13.0.3.0
+  custom_assemblies:
+  - name: System.Text.Json
+    version: 6.0.0.0
+    public_key_token: cc7b13ffcd2ddd51
+    old_version_range: 0.0.0.0-6.0.0.0
+  settings:
+    auto_apply_common: true
+    auto_detect_mismatches: true
+    backup_configs: true
+    create_missing_config: true
