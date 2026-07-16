@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
+  <ItemGroup>
+    <Content Include="Scripts\node.js">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\node.min.js">
+      <DependentUpon>node.js</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Emp.less" />
+    <None Include="Views\Emp.css">
+      <DependentUpon>Emp.less</DependentUpon>
+    </None>
+    <Content Include="Views\Emp.min.css">
+      <DependentUpon>Emp.css</DependentUpon>
+    </Content>
+    <Compile Include="Program.cs" />
+  </ItemGroup>
+</Project>

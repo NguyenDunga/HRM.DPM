@@ -16,8 +16,23 @@
   "license": "GPL-3.0-or-later",
   "author": "",
   "type": "module",
-  "main": "main.js",
+  "main": "main.ts",
+  "bin": {
+    "dpm": "main.ts"
+  },
   "scripts": {
+    "start": "tsx main.ts",
+    "dev": "tsx watch main.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^5.10.0"
   }
 }
