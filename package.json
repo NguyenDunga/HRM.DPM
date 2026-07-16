@@ -25,10 +25,11 @@
     "dev": "tsx watch main.ts",
     "build": "tsc",
     "typecheck": "tsc --noEmit",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "playwright test"
   },
   "devDependencies": {
-    "@types/node": "^22.0.0",
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^26.1.1",
     "tsx": "^4.19.0",
     "typescript": "^5.9.3"
   },

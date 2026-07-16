@@ -27,7 +27,7 @@ const PARSER_OPTIONS = {
   parseAttributeValue: false,
 } as const;
 
-export const Xml = (() => {
+export const Parser = (() => {
   const parser = new XMLParser(PARSER_OPTIONS);
 
   /** Parse XML text into an ordered node tree. */
