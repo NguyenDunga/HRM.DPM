@@ -1,4 +1,4 @@
-import type { Change, ProjectModel } from "../Project/Model.js";
+import type { Change, ProjectModel } from "../Project/Interface.js";
 
 /**
  * A Handler inspects the ProjectModel and mutates it in place, returning the

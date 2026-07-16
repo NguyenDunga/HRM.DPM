@@ -1,4 +1,4 @@
-import type { CsprojEdit, ItemChild } from "./Model.js";
+import type { CsprojEdit, ItemChild } from "./Interface.js";
 
 /**
  * Formatting-preserving csproj writer.

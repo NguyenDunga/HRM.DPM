@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { Pipeline, type Handler } from "../src/Handler/Handler";
-import type { Change, ProjectModel } from "../src/Project/Model";
+import type { Change, ProjectModel } from "../src/Project/Interface";
 
 function emptyModel(): ProjectModel {
   return {
@@ -11,9 +11,10 @@ function emptyModel(): ProjectModel {
       eol: "\n",
       hasBom: false,
       files: [],
+      projectReferences: [],
       edits: [],
     },
-    config: { scriptRoots: [], lessRoots: [] },
+    config: { scriptRoots: [], lessRoots: [], libraryPaths: [], nameMap: {} },
   };
 }
 

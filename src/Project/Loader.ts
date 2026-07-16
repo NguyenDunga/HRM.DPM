@@ -8,13 +8,15 @@ import type {
   CompilerEntry,
   CopyToOutput,
   DpmConfig,
+  DpmFileConfig,
   JsonConfig,
   ProjectFile,
   ProjectModel,
-} from "./Model.js";
+  ProjectReference,
+  ProjectRootConfig,
+} from "./Interface.js";
+import { DEFAULT_CONFIG, FILE_ITEM_TAGS } from "./Config.js";
 
-/** csproj item tags that reference a file we care about. */
-const FILE_ITEM_TAGS = ["Content", "None", "TypeScriptCompile", "Compile"];
 
 /**
  * Loads a .NET project directory into a ProjectModel and writes it back.
@@ -78,6 +80,19 @@ export const ProjectLoader = (() => {
     };
   }
 
+  function toProjectReference(item: XmlNode, rootDir: string): ProjectReference | undefined {
+    const include = Parser.attr(item, "Include");
+    if (!include) return undefined;
+    let name: string | undefined;
+    for (const child of Parser.children(item)) {
+      if (Parser.tagName(child) === "Name") {
+        name = (Parser.text(child) ?? "").trim() || undefined;
+      }
+    }
+    const targetPath = path.resolve(rootDir, include.replace(/\\/g, path.sep));
+    return { include, name, targetPath, exists: fs.existsSync(targetPath) };
+  }
+
   function readConfig<T>(file: string): JsonConfig<T> | undefined {
     if (!fs.existsSync(file)) return undefined;
     const rawText = fs.readFileSync(file, "utf8");
@@ -86,20 +101,45 @@ export const ProjectLoader = (() => {
     return { path: file, hasBom, entries, dirty: false };
   }
 
-  const DEFAULT_CONFIG: DpmConfig = { scriptRoots: ["Scripts"], lessRoots: ["Views"] };
 
-  function readDpmConfig(rootDir: string): DpmConfig {
-    const file = path.join(rootDir, "dpm.config.json");
-    if (!fs.existsSync(file)) return { ...DEFAULT_CONFIG };
+  /** Read a dpm.config.json file. Pass a directory (uses dpm.config.json
+   *  inside it) or a direct path to a .json config file. */
+  function readDpmConfig(rootDirOrFile: string): DpmFileConfig {
+    const file = rootDirOrFile.toLowerCase().endsWith(".json")
+      ? rootDirOrFile
+      : path.join(rootDirOrFile, "dpm.config.json");
+    if (!fs.existsSync(file)) return { projectRoots: [{ Path: "." }] };
     const text = fs.readFileSync(file, "utf8").replace(/^\uFEFF/, "");
-    const parsed = JSON.parse(text) as Partial<DpmConfig>;
+    const parsed = JSON.parse(text) as Partial<DpmFileConfig>;
     return {
-      scriptRoots: parsed.scriptRoots ?? DEFAULT_CONFIG.scriptRoots,
-      lessRoots: parsed.lessRoots ?? DEFAULT_CONFIG.lessRoots,
+      projectRoots: parsed.projectRoots ?? [{ Path: "." }],
+      libraryNameMap: parsed.libraryNameMap,
+      scriptRoots: parsed.scriptRoots,
+      lessRoots: parsed.lessRoots,
+      libraryPaths: parsed.libraryPaths,
     };
   }
 
-  function load(rootDir: string): ProjectModel {
+  /**
+   * Compute the effective per-project config: project-level overrides win over
+   * solution-level defaults, which fall back to DEFAULT_CONFIG. The name map is
+   * the shared libraryNameMap merged with any per-project nameMap.
+   */
+  function effectiveConfig(entry: ProjectRootConfig, file: DpmFileConfig): DpmConfig {
+    return {
+      scriptRoots: entry.scriptRoots ?? file.scriptRoots ?? DEFAULT_CONFIG.scriptRoots,
+      lessRoots: entry.lessRoots ?? file.lessRoots ?? DEFAULT_CONFIG.lessRoots,
+      libraryPaths: entry.libraryPaths ?? file.libraryPaths ?? DEFAULT_CONFIG.libraryPaths,
+      nameMap: {
+        ...(file.libraryNameMap ?? DEFAULT_CONFIG.nameMap),
+        ...(entry.nameMap ?? {}),
+      },
+    };
+  }
+
+  /** Load a project directory. If config is supplied, use it (solution mode);
+   *  otherwise read dpm.config.json from the project dir. */
+  function load(rootDir: string, config?: DpmConfig): ProjectModel {
     const csprojPath = findCsproj(rootDir);
     const rawFull = fs.readFileSync(csprojPath, "utf8");
     const hasBom = rawFull.charCodeAt(0) === 0xfeff;
@@ -115,10 +155,16 @@ export const ProjectLoader = (() => {
       }
     }
 
+    const projectReferences: ProjectReference[] = [];
+    for (const item of Parser.findAll(doc, "ProjectReference")) {
+      const pr = toProjectReference(item, rootDir);
+      if (pr) projectReferences.push(pr);
+    }
+
     return {
       rootDir,
-      csproj: { path: csprojPath, raw, eol, hasBom, files, edits: [] },
-      config: readDpmConfig(rootDir),
+      csproj: { path: csprojPath, raw, eol, hasBom, files, projectReferences, edits: [] },
+      config: config ?? effectiveConfig({ Path: "." }, readDpmConfig(rootDir)),
       bundleConfig: readConfig<BundleEntry>(path.join(rootDir, "bundleconfig.json")),
       compilerConfig: readConfig<CompilerEntry>(path.join(rootDir, "compilerconfig.json")),
     };
@@ -138,5 +184,5 @@ export const ProjectLoader = (() => {
     }
   }
 
-  return { load, commit };
+  return { load, commit, readDpmConfig, effectiveConfig };
 })();

@@ -5,6 +5,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{FA7422BC-3EEF-B17A-59D2-3179F0D3DA4E}|HRM.UI.csproj|d:\\projects\\dpm\\bin\\test_ui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FA7422BC-3EEF-B17A-59D2-3179F0D3DA4E}|HRM.UI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA7422BC-3EEF-B17A-59D2-3179F0D3DA4E}|HRM.UI.csproj|d:\\projects\\dpm\\bin\\test_ui\\scripts\\node.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{FA7422BC-3EEF-B17A-59D2-3179F0D3DA4E}|HRM.UI.csproj|solutionrelative:scripts\\node.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +18,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "node.js",
+              "DocumentMoniker": "D:\\Projects\\DPM\\bin\\test_ui\\Scripts\\node.js",
+              "RelativeDocumentMoniker": "Scripts\\node.js",
+              "ToolTip": "D:\\Projects\\DPM\\bin\\test_ui\\Scripts\\node.js",
+              "RelativeToolTip": "Scripts\\node.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-07-16T09:49:41.037Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"

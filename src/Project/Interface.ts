@@ -44,6 +44,18 @@ export interface ItemChild {
   text: string;
 }
 
+/** A <ProjectReference> item in the csproj. */
+export interface ProjectReference {
+  /** Include path as written in the csproj (native backslash form). */
+  include: string;
+  /** <Name> child text, if present (used to locate the library DLL). */
+  name?: string;
+  /** Absolute path the Include resolves to. */
+  targetPath: string;
+  /** Whether the referenced .csproj exists on disk. */
+  exists: boolean;
+}
+
 /** In-memory representation of a *.csproj to be edited. */
 export interface CsprojModel {
   path: string;
@@ -54,6 +66,8 @@ export interface CsprojModel {
   /** Whether the source file began with a UTF-8 BOM. */
   hasBom: boolean;
   files: ProjectFile[];
+  /** <ProjectReference> items in the csproj. */
+  projectReferences: ProjectReference[];
   /** Pending edits recorded by handlers, applied by commit(). */
   edits: CsprojEdit[];
 }
@@ -83,12 +97,47 @@ export interface JsonConfig<T> {
   dirty: boolean;
 }
 
-/** DPM tool configuration (dpm.config.json), with defaults applied. */
+/**
+ * Effective configuration for a single project, with defaults applied.
+ * This is what handlers read via model.config.
+ */
 export interface DpmConfig {
   /** Folders (relative to project root) scanned for .js inclusion. */
   scriptRoots: string[];
   /** Folders scanned for .less/.css inclusion. */
   lessRoots: string[];
+  /** Folders searched for library DLLs when fixing broken references. */
+  libraryPaths: string[];
+  /** Maps a ProjectReference name to the DLL base name to look for. */
+  nameMap: Record<string, string>;
+}
+
+/**
+ * One project entry in dpm.config.json. `Path` is the project folder
+ * (absolute, or relative to the solution dir). The remaining fields override
+ * the solution-level defaults for this project only.
+ */
+export interface ProjectRootConfig {
+  Path: string;
+  scriptRoots?: string[];
+  lessRoots?: string[];
+  libraryPaths?: string[];
+  /** Per-project name map, merged over the solution-level libraryNameMap. */
+  nameMap?: Record<string, string>;
+}
+
+/**
+ * The dpm.config.json file schema. Each projectRoots entry carries its own
+ * Path plus optional overrides; libraryNameMap applies to every project.
+ */
+export interface DpmFileConfig {
+  projectRoots: ProjectRootConfig[];
+  /** Shared library name map applied to all projects. */
+  libraryNameMap?: Record<string, string>;
+  /** Solution-level defaults, inherited by projects that don't override them. */
+  scriptRoots?: string[];
+  lessRoots?: string[];
+  libraryPaths?: string[];
 }
 
 /** The full working set a run operates on. */

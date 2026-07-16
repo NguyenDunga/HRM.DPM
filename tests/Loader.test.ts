@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { ProjectLoader } from "../src/Project/Loader";
-import type { ProjectFile } from "../src/Project/Model";
+import type { ProjectFile } from "../src/Project/Interface";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const FIXTURE = path.join(HERE, "..", "bin", "test_ui");

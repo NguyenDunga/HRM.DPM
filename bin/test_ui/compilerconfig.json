@@ -1,2 +1,6 @@
 [
+  {
+    "outputFile": "Views/Emp.css",
+    "inputFile": "Views/Emp.less"
+  }
 ]

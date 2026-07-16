@@ -2,17 +2,23 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
   <PropertyGroup>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <TargetFrameworkProfile />
     <ProjectGuid>{FA7422BC-3EEF-B17A-59D2-3179F0D3DA4E}</ProjectGuid>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="bundleconfig.json" />
-    <None Include="compilerconfig.json" />
-    <None Include="compilerconfig.json.defaults" />
+    <Content Include="Scripts\node.js">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\node.min.js">
+      <DependentUpon>node.js</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Emp.less" />
+    <None Include="Views\Emp.css">
+      <DependentUpon>Emp.less</DependentUpon>
+    </None>
+    <Content Include="Views\Emp.min.css">
+      <DependentUpon>Emp.css</DependentUpon>
+    </Content>
     <None Include="app.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Scripts\" />
-    <Folder Include="Views\" />
   </ItemGroup>
 </Project>
