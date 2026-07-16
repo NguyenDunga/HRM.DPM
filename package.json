@@ -1,0 +1,23 @@
+{
+  "name": "dotnet-package-management",
+  "version": "1.0.0",
+  "description": "A simple fixing project management for dotnet project",
+  "keywords": [
+    "TypeScript"
+  ],
+  "homepage": "https://github.com/NguyenDunga/DPM#readme",
+  "bugs": {
+    "url": "https://github.com/NguyenDunga/DPM/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NguyenDunga/DPM.git"
+  },
+  "license": "GPL-3.0-or-later",
+  "author": "",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
