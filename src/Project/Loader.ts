@@ -122,14 +122,16 @@ export const ProjectLoader = (() => {
 
   /**
    * Compute the effective per-project config: project-level overrides win over
-   * solution-level defaults, which fall back to DEFAULT_CONFIG. The name map is
-   * the shared libraryNameMap merged with any per-project nameMap.
+   * solution-level defaults. A root list that is not specified at either level
+   * defaults to [] (empty), which makes the corresponding handler skip that
+   * project silently rather than falling back to processing ".". The name map
+   * is the shared libraryNameMap merged with any per-project nameMap.
    */
   function effectiveConfig(entry: ProjectRootConfig, file: DpmFileConfig): DpmConfig {
     return {
-      scriptRoots: entry.scriptRoots ?? file.scriptRoots ?? DEFAULT_CONFIG.scriptRoots,
-      lessRoots: entry.lessRoots ?? file.lessRoots ?? DEFAULT_CONFIG.lessRoots,
-      libraryPaths: entry.libraryPaths ?? file.libraryPaths ?? DEFAULT_CONFIG.libraryPaths,
+      scriptRoots: entry.scriptRoots ?? file.scriptRoots ?? [],
+      lessRoots: entry.lessRoots ?? file.lessRoots ?? [],
+      libraryPaths: entry.libraryPaths ?? file.libraryPaths ?? [],
       nameMap: {
         ...(file.libraryNameMap ?? DEFAULT_CONFIG.nameMap),
         ...(entry.nameMap ?? {}),
