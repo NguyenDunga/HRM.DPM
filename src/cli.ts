@@ -1,4 +1,3 @@
-#!/usr/bin/env tsx
 /**
  * DPM CLI entry point.
  *
@@ -7,12 +6,12 @@
  * Loads a .NET project, runs the fix pipeline, prints the changes, and (unless
  * --dry-run) commits them back to disk.
  */
-import { Pipeline } from "./src/Handler/Handler.js";
-import { ProjectLoader } from "./src/Project/Loader.js";
-import { ScriptInclusionHandler } from "./src/Handler/File/ScriptInclusionHandler.js";
-import { LessInclusionHandler } from "./src/Handler/File/LessInclusionHandler.js";
-import { BundleConfigHandler } from "./src/Handler/File/BundleConfigHandler.js";
-import { CompilerConfigHandler } from "./src/Handler/File/CompilerConfigHandler.js";
+import { Pipeline } from "./Handler/Handler.js";
+import { ProjectLoader } from "./Project/Loader.js";
+import { ScriptInclusionHandler } from "./Handler/File/ScriptInclusionHandler.js";
+import { LessInclusionHandler } from "./Handler/File/LessInclusionHandler.js";
+import { BundleConfigHandler } from "./Handler/File/BundleConfigHandler.js";
+import { CompilerConfigHandler } from "./Handler/File/CompilerConfigHandler.js";
 
 function parseArgs(argv: string[]): { projectDir: string; dryRun: boolean } {
   const args = argv.slice(2);

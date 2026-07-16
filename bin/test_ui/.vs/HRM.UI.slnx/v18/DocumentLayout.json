@@ -3,14 +3,6 @@
   "WorkspaceRootPath": "D:\\Projects\\DPM\\bin\\test_ui\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FA7422BC-3EEF-B17A-59D2-3179F0D3DA4E}|HRM.UI.csproj|D:\\Projects\\DPM\\bin\\test_ui\\scripts\\node.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{FA7422BC-3EEF-B17A-59D2-3179F0D3DA4E}|HRM.UI.csproj|solutionrelative:scripts\\node.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FA7422BC-3EEF-B17A-59D2-3179F0D3DA4E}|HRM.UI.csproj|D:\\Projects\\DPM\\bin\\test_ui\\views\\emp.less||{28C69EDA-EDF9-4CA8-9EBE-443348B6D916}",
-      "RelativeMoniker": "D:0:0:{FA7422BC-3EEF-B17A-59D2-3179F0D3DA4E}|HRM.UI.csproj|solutionrelative:views\\emp.less||{28C69EDA-EDF9-4CA8-9EBE-443348B6D916}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FA7422BC-3EEF-B17A-59D2-3179F0D3DA4E}|HRM.UI.csproj|d:\\projects\\dpm\\bin\\test_ui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FA7422BC-3EEF-B17A-59D2-3179F0D3DA4E}|HRM.UI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -22,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,7 +26,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Projects\\DPM\\bin\\test_ui\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -43,32 +35,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-16T07:56:42.476Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "node.js",
-              "DocumentMoniker": "D:\\Projects\\DPM\\bin\\test_ui\\Scripts\\node.js",
-              "RelativeDocumentMoniker": "Scripts\\node.js",
-              "ToolTip": "D:\\Projects\\DPM\\bin\\test_ui\\Scripts\\node.js",
-              "RelativeToolTip": "Scripts\\node.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2026-07-16T07:39:14.265Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Emp.less",
-              "DocumentMoniker": "D:\\Projects\\DPM\\bin\\test_ui\\Views\\Emp.less",
-              "RelativeDocumentMoniker": "Views\\Emp.less",
-              "ToolTip": "D:\\Projects\\DPM\\bin\\test_ui\\Views\\Emp.less",
-              "RelativeToolTip": "Views\\Emp.less",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001682|",
-              "WhenOpened": "2026-07-16T07:38:32.057Z",
               "EditorCaption": ""
             }
           ]

@@ -6,23 +6,13 @@
     <ProjectGuid>{FA7422BC-3EEF-B17A-59D2-3179F0D3DA4E}</ProjectGuid>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="Scripts\node.js">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Scripts\node.min.js">
-      <DependentUpon>node.js</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Views\Emp.less" />
     <None Include="bundleconfig.json" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults" />
-    <None Include="Views\Emp.css">
-      <DependentUpon>Emp.less</DependentUpon>
-    </None>
-    <Content Include="Views\Emp.min.css">
-      <DependentUpon>Emp.css</DependentUpon>
-    </Content>
     <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scripts\" />
+    <Folder Include="Views\" />
   </ItemGroup>
 </Project>
