@@ -1,5 +1,5 @@
 {
-  "name": "dotnet-package-management",
+  "name": "@NguyenDunga/dotnet-package-management",
   "version": "1.0.0",
   "description": "A simple fixing project management for dotnet project",
   "keywords": [
@@ -11,7 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NguyenDunga/DPM.git"
+    "url": "git+https://github.com/NguyenDunga/HRM.DPM.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "license": "GPL-3.0-or-later",
   "author": "",
